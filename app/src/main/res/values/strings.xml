@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">lugares_trabajo</string>
+    <string name="app_name">Lugare</string>
+    <string name="tv_correo">Correo</string>
+    <string name="tv_Clave">Contraseña</string>
 </resources>
