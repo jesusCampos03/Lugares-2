@@ -35,14 +35,58 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-private fun hacerRegister(){
-    var email = binding.etMail.text.toString()
-    var clave = binding.etClave.text.toString()
+    private fun hacerRegister() {
+        var email = binding.etMail.text.toString()
+        var clave = binding.etClave.text.toString()
 
-    auth.createUserWithEmailAndPassword(email,clave)
-        .addOnCompleteListener(this) { task ->
-            if(task.isSuccessful){
-
+        auth.createUserWithEmailAndPassword(email,clave)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful){
+                    Log.d("creando Usuario" , "Registrado")
+                    val user = auth.currentUser
+                    if (user != null){
+                        actualiza(user)
+                        }
+                    }else{
+                        Log.d("creando usuario","fallo")
+                        Toast.makeText(baseContext, "falla", Toast.LENGTH_LONG).show()
+                    }
+                }
             }
+    private fun hacerlogin(){
+        var email = binding.etMail.text.toString()
+        var clave = binding.etClave.text.toString()
+
+        auth.createUserWithEmailAndPassword(email,clave)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful){
+                    Log.d("Autenticando" , "Atenticado")
+                    val user = auth.currentUser
+                    if (user != null){
+                        actualiza(user)
+                    }
+                }else{
+                    Log.d("Atenticado","fallo")
+                    Toast.makeText(baseContext, "falla", Toast.LENGTH_LONG).show()
+                }
+            }
+    }
+    private fun actualiza(user: FirebaseUser?){
+        if (user != null){
+            val intent = Intent(this,Principal::class.java)
+            startActivity(intent)
         }
+    }
+    public override fun onStart(){
+        super.onStart()
+        val usuario = auth.currentUser
+        actualiza(usuario)
+    }
+
+
+}
+
+
+
+
 
