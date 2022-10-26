@@ -1,6 +1,6 @@
 package com.example.lugares_trabajo
 
-import android.content.Intent
+import  android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlin.math.log
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -26,10 +26,10 @@ class MainActivity : AppCompatActivity() {
         FirebaseApp.initializeApp(this)
         auth = Firebase.auth
 
-        binding.btLogin.setOnClickListener(){
+        binding.botonLogin.setOnClickListener(){
             hacerlogin();
         }
-        binding.btRegister.setOnclickListener(){
+        binding.botonRegistrar.setOnClickListener(){
             hacerRegister();
         }
 
