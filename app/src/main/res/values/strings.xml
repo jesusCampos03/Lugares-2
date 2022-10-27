@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Lugare</string>
     <string name="tv_correo">Correo</string>
+    <string name="tv_clave">Contraseña</string>
     <string name="title_activity_principal">principal</string>
     <string name="navigation_drawer_open">Open navavigation drawer</string>
     <string name="navigation_drawer_close">Clse navigation drawer</string>
